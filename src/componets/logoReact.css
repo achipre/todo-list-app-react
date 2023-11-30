@@ -1,0 +1,45 @@
+.logo-react {
+  width: clamp(200px, 80%, 500px);
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  opacity: .02;
+  left: 50%;
+  z-index: -1;
+  animation: logoRotate 30s infinite linear
+}
+@keyframes logoRotate {
+  0%{
+    transform: translateY(-50%) translateX(-50%) rotate(0deg);
+  }
+  100%{
+    transform: translateY(-50%) translateX(-50%) rotate(360deg);
+  }
+}
+.arco {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: solid var(--primary-color);
+  border-width: 12px;
+  width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 904/370;
+}
+.arco2 {
+  transform: translateY(-50%) rotate(60deg);
+}
+.arco3 {
+  transform: translateY(-50%) rotate(120deg);
+}
+.centro {
+  position: absolute;
+  top: 50%;
+  width: 10%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: var(--primary-color);
+}

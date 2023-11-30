@@ -1,0 +1,31 @@
+:root {
+  --color: #FFFFFF;
+  --primary-color: #0EA0C6;
+  --secondary-color: #0F3B46;
+  --terciary-color: #001E26;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('./assets/fonts/BarlowCondensed-Light.ttf'), format('.ttf');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Barlow Condensed';
+  src: url('./assets/fonts/BarlowCondensed-Medium.ttf'), format('.ttf');
+  font-weight: 200;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  background-color: var(--terciary-color);
+  font-size: 62.5%;
+}
+body {
+  position: relative;
+  height: 100vh;
+}
