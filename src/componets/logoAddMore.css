@@ -37,14 +37,15 @@
 }
 .plus {
   width: 10%;
-  background-color: #007A9A;
+  background-color: #ffffff;
+  opacity: 2;
   height: 50%;
 }
 .plus::after {
   content: '';
   display: block;
   width: 100%;
-  background-color: #007A9A;
+  background-color: #ffffff;
   height: 100%;
   transform: rotate(90deg);
 }

@@ -7,16 +7,18 @@ export default function SectionCategory () {
   const [categories, setCategories] = useState(mokupCategory)
   const [category, setCategory] = useState('')
 
-  const pushCategory = () => {
+  const pushCategory = (e) => {
     const fechaActual = new Date()
     const newCategory = {
       id: Math.random().toString(),
       nombre: category,
       date: fechaActual.toUTCString()
     }
-    setCategories([...categories, newCategory])
-    setCategory('')
-    setVisibleInputCategory(false)
+    if (e.key === 'Enter' || e.type === 'click') {
+      setCategories([...categories, newCategory])
+      setCategory('')
+      setVisibleInputCategory(false)
+    }
   }
 
   // interaccion en el Input Category
@@ -45,6 +47,7 @@ export default function SectionCategory () {
             className="inputCategory"
             type="text"
             placeholder="Agregar Category"
+            onKeyDown={pushCategory}
             ref={refInputCategory}
             value={category}
             onChange={e => setCategory(e.target.value)}
