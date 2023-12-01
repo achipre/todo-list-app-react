@@ -7,6 +7,7 @@
   padding-left: 36px;
   padding-right: 36px;
   padding-top: 12px;
+  position: relative;
 }
 .categories {
   display: flex;
@@ -31,6 +32,10 @@
 .iconFilter{
   height: 100%;
   padding: 8px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 80px;
+  min-width: 60px;
 
 }
 .iconCategory {
@@ -38,4 +43,50 @@
   margin-left: auto;
   height: 100%;
   width: 90px;
+  min-width: 80px;
+}
+.sectionInputCategory{
+  position: absolute;
+  bottom: -80%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 50%;
+  height: 40px;
+  display: flex;
+}
+.sectionInputCategory::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff66;
+  position: absolute;
+  bottom: -2px;
+  animation: inputCategory .25s ease-in both
+}
+.inputCategory {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  width: calc(100% - 60px);
+  height: 100%;
+  color: #aab0b1;
+  padding-left: 1.5rem;
+}
+.iconSend{
+  cursor: pointer;
+  height: 100%;
+  width: 60px;
+  padding: 4px;
+}
+
+@keyframes inputCategory {
+  0% {
+    width: 0%;
+  }
+  100%{
+    width: 100%;
+  }
+  
 }
