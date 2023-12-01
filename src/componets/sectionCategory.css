@@ -53,6 +53,7 @@
   width: 50%;
   height: 40px;
   display: flex;
+  min-width: 600px;
 }
 .sectionInputCategory::after {
   content: '';
@@ -73,20 +74,31 @@
   height: 100%;
   color: #aab0b1;
   padding-left: 1.5rem;
+  animation: elemCategory .25s ease-in both
 }
 .iconSend{
   cursor: pointer;
   height: 100%;
   width: 60px;
   padding: 4px;
+  animation: elemCategory .25s ease-in both
 }
 
 @keyframes inputCategory {
   0% {
     width: 0%;
+    opacity: 0;
   }
   100%{
     width: 100%;
+    opacity: 1;
   }
-  
+}
+@keyframes elemCategory {
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
