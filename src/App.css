@@ -1,0 +1,20 @@
+
+.principal-main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  min-width: 240px;
+  min-height: calc(460px + 64px);
+}
+.header {
+  width: 100%;
+  max-width: 1200px;
+}
+.todos {
+  padding-top: 36px;
+  height: calc(100vh - 164px);
+  min-height: 360px;
+}

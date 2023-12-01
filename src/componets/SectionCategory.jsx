@@ -1,11 +1,19 @@
 import './sectionCategory.css'
-import mokupCategory from '../assets/mokups.json'
+import mokupCategory from '../assets/mokupsCategory.json'
+import IconFilter, { FolderCategory } from './Icons'
 export default function SectionCategory () {
   return (
-    <section className="categories">
-      {mokupCategory.map(category => (
-        <p key={category.id}>{category.titulo}</p>
-      ))}
+    <section className="sectionCategories">
+      <IconFilter />
+      <div className="categories">
+        {mokupCategory.map(category => (
+          <p className="category" key={category.id}>
+            {category.nombre}
+          </p>
+        ))}
+      </div>
+      <FolderCategory />
+
     </section>
   )
 }

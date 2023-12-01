@@ -1,6 +1,28 @@
+.sectionSearch{
+  position: relative;
+  padding-left: 36px;
+  padding-right: 36px;
+}
 .inputSearch {
+  font-family: "Montserrat", sans-serif;
   border-radius: 20px;
   border: none;
   width: 100%;
-  background-color: blue;
+  outline: none;
+  background-color: #ffffff66;
+  padding: 8px;
+  padding-left: 60px;
+  font-size: 2rem;
+  color: var(--color-white);
+}
+.inputSearch::placeholder {
+  color: #aab0b1;
+}
+.iconSearch{
+  position: absolute;
+  top: 0;
+  left: 32px;
+  height: 100%;
+  padding: 8px;
+  cursor: text;
 }

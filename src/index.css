@@ -1,5 +1,5 @@
 :root {
-  --color: #FFFFFF;
+  --color-white: #FFFFFF;
   --primary-color: #0EA0C6;
   --secondary-color: #0F3B46;
   --terciary-color: #001E26;
@@ -14,6 +14,11 @@
 @font-face {
   font-family: 'Barlow Condensed';
   src: url('./assets/fonts/BarlowCondensed-Medium.ttf'), format('.ttf');
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-Light.ttf'), format('.ttf');
   font-weight: 200;
 }
 * {

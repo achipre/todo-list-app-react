@@ -1,7 +1,41 @@
-.categories {
+.sectionCategories {
   display: flex;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 2rem;
   font-weight: 100;
-  color: var(--primary-color);
+  height: 58px;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-top: 12px;
+}
+.categories {
+  display: flex;
+  gap: 1rem;
+  overflow-x: scroll;
+}
+.categories::-webkit-scrollbar {
+  display: none;
+}
+.category {
+  cursor: pointer;
+  display: flex;
+  justify-items: center;
+  border-radius: 4px;
+  background-color: #ffffff66;
+  padding: 9px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: #aab0b1;
+  text-wrap: nowrap;
+}
+.iconFilter{
+  height: 100%;
+  padding: 8px;
+
+}
+.iconCategory {
+  cursor: pointer;
+  margin-left: auto;
+  height: 100%;
+  width: 90px;
 }
