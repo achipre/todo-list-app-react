@@ -4,10 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  margin-top: 32px;
+  margin-bottom: 32px;
   min-width: 240px;
   min-height: calc(460px + 64px);
+  position: relative;;
 }
 .header {
   width: 100%;
