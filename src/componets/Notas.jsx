@@ -3,16 +3,27 @@ import { IconArrow, IconSave } from './Icons'
 import './nota.css'
 export default function Notas ({ closeModal }) {
   // New Todo
-  // const [newTodo, setNewTodo] = useState({})
+  const [newTodo, setNewTodo] = useState({})
+
+  const saveTodo = () => {
+    setNewTodo({
+      id: 123,
+      title: valueInput,
+      infoTodo: valueText,
+      date: fechaDate,
+      dateHour: fechaHours
+    })
+  }
+  console.log(newTodo)
 
   // valor Titulo
   const [valueInput, setValueInput] = useState('')
-  const newTitle = (e) => {
+  const newTitle = e => {
     setValueInput(e.target.value)
   }
   // valor Texto
   const [valueText, setValueText] = useState('')
-  const newText = (e) => {
+  const newText = e => {
     setValueText(e.target.value)
   }
 
@@ -24,7 +35,13 @@ export default function Notas ({ closeModal }) {
     <section className="nota">
       <header className="header-notas">
         <IconArrow closeModal={closeModal} />
-        <input className="inputTitle" type="text" placeholder="Titulo" value={valueInput} onChange={newTitle}/>
+        <input
+          className="inputTitle"
+          type="text"
+          placeholder="Titulo"
+          value={valueInput}
+          onChange={newTitle}
+        />
         <aside>
           <p className="headerDate">{fechaDate}</p>
           <p className="headerDate">{fechaHours}</p>
@@ -36,7 +53,7 @@ export default function Notas ({ closeModal }) {
         value={valueText}
         onChange={newText}
       ></textarea>
-      <IconSave />
+      <IconSave saveTodo={saveTodo} />
     </section>
   )
 }

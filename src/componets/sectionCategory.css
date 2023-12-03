@@ -59,7 +59,7 @@
   content: '';
   width: 0%;
   height: 2px;
-  background-color: #ffffff66;
+  background-color: #0EA0C6;
   position: absolute;
   bottom: -2px;
   animation: inputCategory .25s ease-in both

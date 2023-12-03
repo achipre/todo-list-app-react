@@ -15,7 +15,55 @@
   max-width: 1200px;
 }
 .todos {
-  padding-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1rem;
+  width: calc(100% - 72px);
+  max-width: 1200px;
+  padding-top: 62px;
+  padding-left: 32px;
+  padding-right: 32px;
   height: calc(100vh - 164px);
   min-height: 360px;
+}
+.articleTodo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  max-height: 20%;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 200;
+  color: var(--secondary-color);
+}
+.articleTitle {
+  font-size: 3rem;
+  font-weight: 400;
+}
+.articleFooter{
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.iconDelete {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 1rem;
+  right: 1rem;
+}
+.articleNewTodo{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 10px dashed var(--primary-color);
+  border-radius: 1rem;
+  max-height: 20%;
 }
