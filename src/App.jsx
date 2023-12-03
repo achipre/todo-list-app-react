@@ -4,13 +4,13 @@ import InputSearch from './componets/InputSearch'
 import SectionCategory from './componets/SectionCategory'
 import LogoAddMore from './componets/LogoAddMore'
 import Notas from './componets/Notas'
-import { useState } from 'react'
-import { useStore } from './store/todoStore'
+import { useRef, useState } from 'react'
+import { useStore, useStoreCategory } from './store/todoStore'
 import { IconAdd, IconDelete } from './componets/Icons'
 
 export default function App () {
-  const infoTodos = useStore((state) => state)
-  const [todos] = useState([...infoTodos])
+  const [infoTodos] = useStore((state) => state)
+  const [todos, setTodos] = useState([infoTodos])
   // Hola
 
   // openModal
@@ -21,6 +21,21 @@ export default function App () {
   const closeModal = () => {
     setIsOpenModalTodo(false)
   }
+  const deleteTodo = (id) => {
+    const newTodos = todos.find(newTodo => id === newTodo.id)
+    setTodos(newTodos)
+  }
+  const isOpenCatgory = useStoreCategory(state => state.visibilityInputCategory)
+  const refSectionTodo = useRef()
+
+  if (isOpenCatgory) {
+    refSectionTodo.current.classList.add('todosWithOpenCategory')
+    refSectionTodo.current.classList.remove('todosWithCloseCategory')
+  }
+  if (!isOpenCatgory) {
+    refSectionTodo.current?.classList?.add('todosWithCloseCategory')
+    refSectionTodo.current?.classList?.remove('todosWithOpenCategory')
+  }
 
   return (
     <main className="principal-main">
@@ -29,7 +44,10 @@ export default function App () {
         <InputSearch />
         <SectionCategory />
       </header>
-      <section className="todos">
+      <section
+        className='todos'
+        ref={refSectionTodo}
+      >
         {todos.length > 0 &&
           todos.map(todo => (
             <article className="articleTodo" key={todo.id}>
@@ -39,14 +57,17 @@ export default function App () {
                 <p className="articleCategory">{todo.category}</p>
                 <p className="articleDate">{todo.date}</p>
               </div>
-              <IconDelete />
+              <IconDelete deleteTodo={() => deleteTodo(todo.id)} />
             </article>
           ))}
-        {todos.length > 0 && <article className="articleNewTodo">
+        {todos.length > 0 && (
+          <article onClick={openModal} className="articleNewTodo">
             <IconAdd />
           </article>
-          }
-        {todos.length === 0 && <LogoAddMore openModal={openModal} />}
+        )}
+        {(todos.length === 0 || todos.length === undefined) && (
+          <LogoAddMore openModal={openModal} />
+        )}
       </section>
       {isOpenModalTodo && <Notas closeModal={closeModal} />}
     </main>

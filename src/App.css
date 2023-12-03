@@ -20,11 +20,33 @@
   gap: 1rem;
   width: calc(100% - 72px);
   max-width: 1200px;
-  padding-top: 62px;
-  padding-left: 32px;
-  padding-right: 32px;
-  height: calc(100vh - 164px);
+  padding-top: 32px;
+  padding-left: 36px;
+  padding-right: 36px;
+  height: calc(100vh - 200px );
   min-height: 360px;
+}
+.todosWithOpenCategory {
+  animation: openCategory .25s ease-in both;
+}
+@keyframes openCategory {
+  0% {
+    padding-top: 32px;
+  }
+  100% {
+    padding-top: 84px;
+  }
+}
+.todosWithCloseCategory {
+  animation: closeCategory .25s ease-in both;
+}
+@keyframes closeCategory {
+  0% {
+    padding-top: 84px;
+  }
+  100% {
+    padding-top: 32px;
+  }
 }
 .articleTodo {
   position: relative;

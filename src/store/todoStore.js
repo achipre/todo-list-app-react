@@ -10,3 +10,7 @@ export const useStore = create(() => [
     category: 'Sin Categoria'
   }
 ])
+export const useStoreCategory = create(set => ({
+  visibilityInputCategory: false,
+  turnToTrue: () => set((state) => ({ visibilityInputCategory: !state.visibilityInputCategory }))
+}))

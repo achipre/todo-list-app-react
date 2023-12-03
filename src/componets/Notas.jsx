@@ -14,7 +14,6 @@ export default function Notas ({ closeModal }) {
       dateHour: fechaHours
     })
   }
-  console.log(newTodo)
 
   // valor Titulo
   const [valueInput, setValueInput] = useState('')
