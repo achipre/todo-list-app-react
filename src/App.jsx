@@ -9,7 +9,8 @@ import { useStore, useStoreCategory } from './store/todoStore'
 import { IconAdd, IconDelete } from './componets/Icons'
 
 export default function App () {
-  const [infoTodos] = useStore((state) => state)
+  const infoTodos = useStore((state) => state.todos)
+
   const [todos, setTodos] = useState([infoTodos])
   // Hola
 

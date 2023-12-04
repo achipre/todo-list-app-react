@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import { IconArrow, IconSave } from './Icons'
 import './nota.css'
+import { useStore } from '../store/todoStore'
 export default function Notas ({ closeModal }) {
   // New Todo
-  const [newTodo, setNewTodo] = useState({})
+  const valueNewTodo = useStore(state => state.addTodo)
 
   const saveTodo = () => {
-    setNewTodo({
+    valueNewTodo({
       id: 123,
       title: valueInput,
       infoTodo: valueText,
