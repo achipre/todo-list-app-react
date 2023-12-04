@@ -1,42 +1,51 @@
 import { useState, useRef } from 'react'
 import './sectionCategory.css'
-import mokupCategory from '../assets/mokupsCategory.json'
 import { FolderCategory, IconFilter, IconSend } from './Icons'
-import { useStoreCategory } from '../store/todoStore'
+import { useStoreCategories, useStoreCategory } from '../store/todoStore'
 export default function SectionCategory () {
   // Agregar Category
-  const [categories, setCategories] = useState(mokupCategory)
+  const { categories, addCategory, selectCategory } = useStoreCategories()
+
   const [category, setCategory] = useState('')
 
   // interaccion en el Input Category
-  const visibilidadCategory = useStoreCategory(state => state)
+  const { visibilityInputCategory, turnToTrue } = useStoreCategory()
+
+  // add Category
 
   const pushCategory = e => {
     if (category.trim() === '') return
     const newCategory = {
       id: Math.random().toString(),
-      nombre: category
+      nombre: category,
+      isSelect: true
     }
     if (e.key === 'Enter' || e.type === 'click') {
-      setCategories([...categories, newCategory])
+      addCategory(newCategory)
       setCategory('')
-      visibilidadCategory.turnToTrue()
+      turnToTrue()
     }
   }
+
   const refInputCategory = useRef()
   const refSectionInputCategory = useRef()
 
+  // selection Category
+  const clickCategory = (e) => {
+    selectCategory(e)
+  }
+
   const visibilityandFocus = () => {
-    if (!(visibilidadCategory.visibilityInputCategory)) {
-      visibilidadCategory.turnToTrue()
+    if (!visibilityInputCategory) {
+      turnToTrue()
       setTimeout(() => {
         refInputCategory.current.focus()
       }, 1)
     }
-    if (visibilidadCategory.visibilityInputCategory) {
+    if (visibilityInputCategory) {
       refSectionInputCategory.current.classList.add('sectionExitImput')
       setTimeout(() => {
-        visibilidadCategory.turnToTrue()
+        turnToTrue()
       }, 85)
     }
   }
@@ -45,13 +54,17 @@ export default function SectionCategory () {
       <IconFilter />
       <div className="categories">
         {categories.map(category => (
-          <p className="category" key={category.id}>
+          <p
+            onClick={() => clickCategory(category.id)}
+            className={`category ${category.isSelect && 'selectCategory'}`}
+            key={category.id}
+          >
             {category.nombre}
           </p>
         ))}
       </div>
       <FolderCategory addCategory={visibilityandFocus} />
-      {visibilidadCategory.visibilityInputCategory && (
+      {visibilityInputCategory && (
         <div className="sectionInputCategory" ref={refSectionInputCategory}>
           <input
             className="inputCategory"

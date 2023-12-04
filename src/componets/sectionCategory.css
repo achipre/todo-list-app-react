@@ -30,6 +30,9 @@
   text-wrap: nowrap;
   animation: categoryOpacity .25s both ease-in;
 }
+.selectCategory{
+  font-weight: 400;
+}
 @keyframes categoryOpacity {
   0% {
     opacity: 0;

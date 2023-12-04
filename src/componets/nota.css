@@ -3,25 +3,19 @@
   background-color: var(--secondary-color);
   position:absolute;
   max-width: calc(1200px - 72px);
+  width: calc(100% - 72px);
   border-radius: 20px;
   margin-left: 56px;
   margin-right: 56px;
   padding: 2rem;
-  animation: openModalTodo .3s ease-out both;
+  animation: openModalTodo .25s ease-out both;
 }
 @keyframes openModalTodo {
   0% {
-    width: 0;
     height: 0;
   }
-  50%{
-    width: 55%;
-    height: 100%;
-  }
   100% {
-    width: calc(100% - 72px);
-    height: 100%;
-
+    height: calc(100vh - 72px);
   }
 }
 .header-notas {

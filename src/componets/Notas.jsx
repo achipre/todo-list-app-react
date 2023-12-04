@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import { IconArrow, IconSave } from './Icons'
 import './nota.css'
-import { useStore } from '../store/todoStore'
+import { useStore, useStoreCategories } from '../store/todoStore'
 export default function Notas ({ closeModal }) {
   // New Todo
   const { addTodo } = useStore()
+  const { categories } = useStoreCategories()
 
   const saveTodo = () => {
+    const categoryNow = categories.filter(category => category.isSelect === true)[0].nombre
     const info = {
       id: Math.random(),
       title: valueInput,
       infoTodo: valueText,
       date: fechaDate,
       dateHour: fechaHours,
-      category: 'Sin Category'
+      category: (categoryNow === 'Todos' ? 'Sin Categoria' : categoryNow)
     }
     addTodo(info)
   }
