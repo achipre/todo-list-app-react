@@ -9,9 +9,8 @@ import { useStore, useStoreCategory } from './store/todoStore'
 import { IconAdd, IconDelete } from './componets/Icons'
 
 export default function App () {
-  const infoTodos = useStore((state) => state.todos)
+  const { todos, removeTodo } = useStore()
 
-  const [todos, setTodos] = useState([infoTodos])
   // Hola
 
   // openModal
@@ -23,8 +22,7 @@ export default function App () {
     setIsOpenModalTodo(false)
   }
   const deleteTodo = (id) => {
-    const newTodos = todos.find(newTodo => id === newTodo.id)
-    setTodos(newTodos)
+    removeTodo(id)
   }
   const isOpenCatgory = useStoreCategory(state => state.visibilityInputCategory)
   const refSectionTodo = useRef()

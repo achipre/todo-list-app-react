@@ -4,16 +4,18 @@ import './nota.css'
 import { useStore } from '../store/todoStore'
 export default function Notas ({ closeModal }) {
   // New Todo
-  const valueNewTodo = useStore(state => state.addTodo)
+  const { addTodo } = useStore()
 
   const saveTodo = () => {
-    valueNewTodo({
-      id: 123,
+    const info = {
+      id: Math.random(),
       title: valueInput,
       infoTodo: valueText,
       date: fechaDate,
-      dateHour: fechaHours
-    })
+      dateHour: fechaHours,
+      category: 'Sin Category'
+    }
+    addTodo(info)
   }
 
   // valor Titulo
