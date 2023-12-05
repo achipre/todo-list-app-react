@@ -23,6 +23,13 @@ export default function SectionCategory () {
       addCategory(newCategory)
       setCategory('')
       turnToTrue()
+      localStorage.setItem(
+        'categories',
+        JSON.stringify([
+          ...categories.map(category => ({ ...category, isSelect: false })),
+          newCategory
+        ])
+      )
     }
   }
   const refInputCategory = useRef()
@@ -31,6 +38,13 @@ export default function SectionCategory () {
   // selection Category
   const clickCategory = (e) => {
     selectCategory(e)
+    const localCategory = JSON.parse(localStorage.getItem('categories'))
+    const newLocalCategory = (
+      localCategory.map(category =>
+        category.id === e ? { ...category, isSelect: true } : { ...category, isSelect: false }
+      )
+    )
+    localStorage.setItem('categories', JSON.stringify(newLocalCategory))
   }
 
   const visibilityandFocus = () => {
@@ -47,11 +61,12 @@ export default function SectionCategory () {
       }, 85)
     }
   }
+  const localStorageCategories = localStorage.getItem('categories') === null ? localStorage.setItem('categories', JSON.stringify(categories)) : JSON.parse(localStorage.getItem('categories'))
   return (
     <section className="sectionCategories">
       <IconFilter />
       <div className="categories">
-        {categories.map(category => (
+        {localStorageCategories.map(category => (
           <p
             onClick={() => clickCategory(category.id)}
             className={`category ${category.isSelect && 'selectCategory'}`}
