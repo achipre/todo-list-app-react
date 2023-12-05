@@ -21,6 +21,7 @@ export default function App () {
   const closeModal = () => {
     setIsOpenModalTodo(false)
   }
+
   const deleteTodo = (id) => {
     removeTodo(id)
   }
@@ -35,8 +36,14 @@ export default function App () {
     refSectionTodo.current?.classList.remove('todosWithOpenCategory')
   }
   const { categories } = useStoreCategories()
-  const filterbycategory = categories.filter(category => category.isSelect === true)
-  const filtercategoryName = filterbycategory[0].nombre
+  const localStorageCategories =
+    localStorage.getItem('categories') === null
+      ? localStorage.setItem('categories', JSON.stringify(categories))
+      : JSON.parse(localStorage.getItem('categories'))
+  const filterbycategory = localStorageCategories?.filter(category => category.isSelect === true)
+
+  const filtercategoryName = filterbycategory?.at(0)?.nombre
+
   const todosFilter = (filtercategoryName === 'Todos') ? todos : todos.filter(todo => todo.category === filtercategoryName)
 
   return (

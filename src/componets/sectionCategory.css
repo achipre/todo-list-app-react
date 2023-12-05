@@ -26,15 +26,17 @@
   text-overflow: ellipsis;
   cursor: pointer;
   border-radius: 4px;
-  background-color: var(--primary-color);
   padding: 11px;
   padding-left: 16px;
   padding-right: 16px;
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--terciary-color);
   text-wrap: nowrap;
   animation: categoryOpacity .25s both ease-in;
 }
 .selectCategory{
+  color: var(--terciary-color);
+  background-color: var(--primary-color);
   font-weight: 400;
 }
 @keyframes categoryOpacity {

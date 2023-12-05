@@ -20,13 +20,14 @@ export default function SectionCategory () {
       isSelect: true
     }
     if (e.key === 'Enter' || e.type === 'click') {
+      const localCategory = JSON.parse(localStorage.getItem('categories'))
       addCategory(newCategory)
       setCategory('')
       turnToTrue()
       localStorage.setItem(
         'categories',
         JSON.stringify([
-          ...categories.map(category => ({ ...category, isSelect: false })),
+          ...localCategory.map(category => ({ ...category, isSelect: false })),
           newCategory
         ])
       )

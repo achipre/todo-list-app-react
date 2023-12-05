@@ -6,9 +6,14 @@ export default function Notas ({ closeModal }) {
   // New Todo
   const { addTodo } = useStore()
   const { categories } = useStoreCategories()
+  const localStorageCategories =
+    localStorage.getItem('categories') === null
+      ? localStorage.setItem('categories', JSON.stringify(categories))
+      : JSON.parse(localStorage.getItem('categories'))
 
   const saveTodo = () => {
-    const categoryNow = categories.filter(category => category.isSelect === true)[0].nombre
+    const categoryNow = localStorageCategories.filter(category => category.isSelect === true)[0]
+      .nombre
     const info = {
       id: Math.random(),
       title: valueInput,
