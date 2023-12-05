@@ -5,7 +5,6 @@ import { useStoreCategories, useStoreCategory } from '../store/todoStore'
 export default function SectionCategory () {
   // Agregar Category
   const { categories, addCategory, selectCategory } = useStoreCategories()
-
   const [category, setCategory] = useState('')
 
   // interaccion en el Input Category
@@ -26,7 +25,6 @@ export default function SectionCategory () {
       turnToTrue()
     }
   }
-
   const refInputCategory = useRef()
   const refSectionInputCategory = useRef()
 

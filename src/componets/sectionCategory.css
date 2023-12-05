@@ -18,12 +18,16 @@
   display: none;
 }
 .category {
+  font-size: 2.8rem;
+  min-width: 170px;
+  max-width: 188px;
+  text-align: center;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
-  display: flex;
-  justify-items: center;
   border-radius: 4px;
   background-color: var(--primary-color);
-  padding: 9px;
+  padding: 11px;
   padding-left: 16px;
   padding-right: 16px;
   color: var(--secondary-color);

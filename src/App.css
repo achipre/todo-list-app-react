@@ -61,8 +61,21 @@
   color: var(--secondary-color);
 }
 .articleTitle {
-  font-size: 3rem;
+  width: 90%;
+  min-height: 34px;
+  font-size: 2.6rem;
   font-weight: 400;
+  text-wrap: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.articleInfoTodo{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  font-size: 1.85rem;
+  text-overflow: ellipsis;
 }
 .articleFooter{
   font-size: 1.2rem;
@@ -70,6 +83,12 @@
   margin-top: auto;
   display: flex;
   justify-content: space-between;
+}
+.articleCategory{
+  max-width: 65%;
+  overflow-x: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
 }
 .iconDelete {
   position: absolute;
