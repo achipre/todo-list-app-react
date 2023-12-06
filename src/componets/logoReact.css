@@ -1,8 +1,8 @@
 .logo-react {
   width: clamp(200px, 80%, 500px);
   aspect-ratio: 1;
-  position: absolute;
-  top: 57%;
+  position: fixed;
+  top: 60%;
   transform: translateY(-50%) translateX(-50%);
   opacity: .02;
   left: 50%;

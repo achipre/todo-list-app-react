@@ -13,9 +13,14 @@
 @keyframes openModalTodo {
   0% {
     height: 0;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
   }
   100% {
     height: calc(100vh - 72px);
+    opacity: 1;
   }
 }
 .notaClose{
@@ -26,8 +31,8 @@
     height: calc(100vh - 72px);
     opacity: 1;
   }
-  20%{
-    opacity: 1;
+  80%{
+    opacity: 0;
 
   }
   100% {
@@ -86,7 +91,8 @@
 .iconSave {
   cursor: pointer;
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  width: 5rem ;
+  bottom: 3rem;
+  right: 3rem;
+  width: 4.5rem;
+  height: 4.5rem;
 }
