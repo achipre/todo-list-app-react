@@ -222,12 +222,24 @@ export default function App () {
         </div>
         <a href="https://github.com/" className="versionAngular">
           <IconAngular />
+          <div className="animationAngulaButton"></div>
+          <div className="animationAngular">
+            <img className="iconAngular" src="/Angular.svg" alt="Icono de Angular" />
+          </div>
         </a>
         <a href="https://github.com/" className="versionVue">
           <IconVue />
+          <div className="animationVueButton"></div>
+          <div className="animationVue">
+            <img className="iconVue" src="/Vue.svg" alt="Icono de Vue" />
+          </div>
         </a>
         <a href="https://github.com/" className="versionSvelte">
           <IconSvelte />
+          <div className="animationSvelteButton"></div>
+          <div className="animationSvelte">
+            <img className="iconSvelte" src="/Svelte.svg" alt="Icono de Svelte" />
+          </div>
         </a>
       </div>
       <a href="https://github.com/chipredev" className="profile">

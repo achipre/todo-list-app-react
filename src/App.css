@@ -148,7 +148,7 @@
   border-radius: 50%;
   background-color: var(--primary-color);
   padding: 1rem;
-  animation: rotateReact 10s linear infinite
+  animation: rotateReact 20s linear infinite
 }
 @keyframes rotateReact {
   0%{
@@ -162,14 +162,104 @@
 .versionAngular,
 .versionVue,
 .versionSvelte{
-  filter: grayscale(1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  aspect-ratio: 1;
 }
-.versionAngular:hover{
-  filter: grayscale(0);
+.animationAngular, .animationVue, .animationSvelte{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
-.versionVue:hover{
-  filter: grayscale(0);
+.iconAngularSVG, .iconVueSVG, .iconSvelteSVG{
+  filter: grayscale(.8);
 }
-.versionSvelte:hover{
-  filter: grayscale(0);
+
+
+.versionAngular:hover .animationAngular,
+.versionVue:hover .animationVue, 
+.versionSvelte:hover .animationSvelte{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: #FF31D9;
+  animation: backAngular .45s ease-out both;
+}
+.versionVue:hover .animationVue{
+  background-color: #41B883;
+}
+.versionSvelte:hover .animationSvelte{
+  background-color: #FF3E00;
+
+}
+.iconAngular, .iconVue, .iconSvelte{
+  position: fixed;
+  display: none;
+}
+.versionAngular:hover .iconAngular, .versionVue:hover .iconVue, .versionSvelte:hover .iconSvelte{
+  display: block;
+}
+@keyframes backAngular {
+  0% {
+    width: 0;
+    top: 50%;
+    left: 50%;
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: grayscale(0);
+  }
+}
+.animationAngulaButton, .animationVueButton, .animationSvelteButton {
+  content: '';
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: #FF31D9;
+
+}
+.animationVueButton{
+  background-color: #41B883;
+}
+
+.animationSvelteButton {
+  background-color: #FF3E00;
+}
+.versionAngular:hover .animationAngulaButton, .versionVue:hover .animationVueButton, .versionSvelte:hover .animationSvelteButton{
+  position: absolute;
+  content: '';
+  border-radius: 50%;
+  aspect-ratio: 1;
+  background-color: #FF31D9;
+  animation: pulsarFrame 1s .4s ease infinite;
+}
+.versionVue:hover .animationVueButton{
+  background-color: #41B883;
+}
+.versionSvelte:hover .animationSvelteButton {
+  background-color: #FF3E00;
+}
+
+@keyframes pulsarFrame {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+ 
+  100% {
+    width: 130%;
+    height: 130%;
+    opacity: 0;
+  }
+
 }
