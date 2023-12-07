@@ -7,14 +7,13 @@
   justify-content: center;
   position: relative;
   height: calc(100vh - 210px);
-  opacity: .5;
 }
 .circle {
   cursor: pointer;
   position: absolute;
   width: clamp(80px, 20vw, 120px);
   aspect-ratio: 1;
-  background-color: #0EA0C6;
+  background-color: var(--primary-color);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -38,16 +37,23 @@
   }
 }
 .plus {
-  width: 10%;
-  background-color: #ffffff;
+  z-index: -10;
+  width: 12%;
+  background-color: var(--terciary-color);
   opacity: 2;
   height: 50%;
 }
 .plus::after {
+
   content: '';
   display: block;
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--terciary-color);
   height: 100%;
   transform: rotate(90deg);
+}
+.iconNotSearch{
+  width: 25%;
+  height: 25%;
+  min-width: 180px;
 }

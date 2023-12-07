@@ -58,7 +58,7 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   font-weight: 200;
-  color: var(--secondary-color);
+  color: var(--terciary-color);
 }
 .articleTitle {
   width: 90%;
@@ -124,7 +124,8 @@
   border-radius: 50%;
 }
 .text-notodo{
-  font-size: 3rem;
+  font-size: 4rem;
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
   display: block;
   color: var(--primary-color);
@@ -132,4 +133,43 @@
 .notodo{
   flex-direction: column;
   gap: 4rem;
+}
+.framework {
+  position: fixed;
+  height: 100vh;
+  min-height: 460px;
+  top: 0;
+  left: 36px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.versionReact{
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  padding: 1rem;
+  animation: rotateReact 10s linear infinite
+}
+@keyframes rotateReact {
+  0%{
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+  
+}
+.versionAngular,
+.versionVue,
+.versionSvelte{
+  filter: grayscale(1);
+}
+.versionAngular:hover{
+  filter: grayscale(0);
+}
+.versionVue:hover{
+  filter: grayscale(0);
+}
+.versionSvelte:hover{
+  filter: grayscale(0);
 }

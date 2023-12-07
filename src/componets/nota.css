@@ -1,6 +1,6 @@
 
 .nota{
-  background-color: var(--secondary-color);
+  background-color: var(--primary-color);
   position:absolute;
   max-width: calc(1200px - 72px);
   width: calc(100% - 72px);
@@ -9,6 +9,7 @@
   margin-right: 56px;
   padding: 2rem;
   animation: openModalTodo .25s ease-out both;
+  z-index: 10;
 }
 @keyframes openModalTodo {
   0% {
@@ -57,19 +58,18 @@
   font-size: 4rem;
   font-family: 'Montserrat', sans-serif;
   border: none;
-  color: var(--primary-color) ;
+  color: var(--terciary-color) ;
   outline: none;
   font-weight: 400;
 }
 .inputTitle::placeholder {
-  color: var(--primary-color);
-  opacity: .5;
+  color: var(--secondary-color);
 }
 .headerDate {
   margin-left: auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   text-wrap: nowrap;
 }
 .nota-textarea {
@@ -82,11 +82,10 @@
   height: calc(100% - 49px);
   border: none;
   outline: none;
-  color: var(--primary-color);
+  color: var(--terciary-color);
 }
 .nota-textarea::placeholder {
-  color: var(--primary-color);
-  opacity: .5;
+  color: var(--secondary-color);
 }
 .iconSave {
   cursor: pointer;

@@ -11,7 +11,15 @@ import {
   useStoreCategories,
   useStoreInputSearch
 } from './store/todoStore'
-import { IconAdd, IconDelete, IconNotSearch } from './componets/Icons'
+import {
+  IconAdd,
+  IconAngular,
+  IconDelete,
+  IconNotSearch,
+  IconReact,
+  IconSvelte,
+  IconVue
+} from './componets/Icons'
 
 export default function App () {
   const { todos, addTodo, removeTodo } = useStore()
@@ -176,7 +184,7 @@ export default function App () {
                 <p className="articleCategory">{todo.category}</p>
                 <p className="articleDate">{todo.date}</p>
               </div>
-              <IconDelete deleteTodo={(e) => deleteTodo(todo.id, e)} />
+              <IconDelete deleteTodo={e => deleteTodo(todo.id, e)} />
             </article>
           ))}
           {newFilterBySearch?.length === 0 && valueSearchLower.length > 0 && (
@@ -208,12 +216,26 @@ export default function App () {
           />
         )}
       </main>
-      <div className="profile">
+      <div className="framework">
+        <div className="versionReact">
+          <IconReact />
+        </div>
+        <a href="https://github.com/" className="versionAngular">
+          <IconAngular />
+        </a>
+        <a href="https://github.com/" className="versionVue">
+          <IconVue />
+        </a>
+        <a href="https://github.com/" className="versionSvelte">
+          <IconSvelte />
+        </a>
+      </div>
+      <a href="https://github.com/chipredev" className="profile">
         <img
           src="https://avatars.githubusercontent.com/u/107824859?s=400&u=5214f01abcee56fc371e163c57bdec7b36282f1b&v=4"
           alt=""
         />
-      </div>
+      </a>
     </>
   )
 }
