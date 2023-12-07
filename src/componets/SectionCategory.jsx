@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import './sectionCategory.css'
-import { FolderCategory, IconFilter, IconSend } from './Icons'
+import { FolderCategory, IconFilter, IconSend, IconDeleteCategory } from './Icons'
 import { useStoreCategories, useStoreCategory } from '../store/todoStore'
 export default function SectionCategory () {
   // Agregar Category
@@ -13,6 +13,8 @@ export default function SectionCategory () {
   // add Category
 
   const pushCategory = e => {
+    const localCategory = JSON.parse(localStorage.getItem('categories'))
+
     if (category.trim() === '') return
     const newCategory = {
       id: Math.random().toString(),
@@ -20,7 +22,6 @@ export default function SectionCategory () {
       isSelect: true
     }
     if (e.key === 'Enter' || e.type === 'click') {
-      const localCategory = JSON.parse(localStorage.getItem('categories'))
       addCategory(newCategory)
       setCategory('')
       turnToTrue()
@@ -38,14 +39,41 @@ export default function SectionCategory () {
 
   // selection Category
   const clickCategory = (e) => {
-    selectCategory(e)
     const localCategory = JSON.parse(localStorage.getItem('categories'))
+
+    selectCategory(e)
     const newLocalCategory = (
       localCategory.map(category =>
         category.id === e ? { ...category, isSelect: true } : { ...category, isSelect: false }
       )
     )
     localStorage.setItem('categories', JSON.stringify(newLocalCategory))
+  }
+  // handle category delete
+  const handleDelete = (id, e) => {
+    e.stopPropagation()
+    const localCategory = JSON.parse(localStorage.getItem('categories'))
+    if (localCategory.filter(cate => cate.id === id)[0].isSelect) {
+      selectCategory('1')
+      const newLocalCategory = JSON.stringify(
+        localCategory
+          .filter(category => category.id !== id)
+          .map(firstTodo =>
+            firstTodo.id === '1' ? { ...firstTodo, isSelect: true } : { ...firstTodo }
+          )
+      )
+      localStorage.setItem('categories', newLocalCategory)
+    } else {
+      selectCategory(id)
+      const newLocalCategory = JSON.stringify(
+        localCategory
+          .filter(category => category.id !== id)
+          .map(firstTodo =>
+            firstTodo.id === id ? { ...firstTodo, isSelect: true } : { ...firstTodo }
+          )
+      )
+      localStorage.setItem('categories', newLocalCategory)
+    }
   }
 
   const visibilityandFocus = () => {
@@ -67,14 +95,17 @@ export default function SectionCategory () {
     <section className="sectionCategories">
       <IconFilter />
       <div className="categories">
-        {localStorageCategories.map(category => (
-          <p
+        {localStorageCategories?.map(category => (
+          <div
             onClick={() => clickCategory(category.id)}
-            className={`category ${category.isSelect && 'selectCategory'}`}
+            className={`bloqCategory ${category.isSelect && 'selectCategory'}`}
             key={category.id}
           >
-            {category.nombre}
-          </p>
+            <p className={'category'}>{category.nombre}</p>
+            {category.id !== '1' && category.id !== '2' && (
+              <IconDeleteCategory handleDelete={(e) => handleDelete(category.id, e)} />
+            )}
+          </div>
         ))}
       </div>
       <FolderCategory addCategory={visibilityandFocus} />

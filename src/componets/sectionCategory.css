@@ -17,19 +17,26 @@
 .categories::-webkit-scrollbar {
   display: none;
 }
-.category {
-  font-size: 2.8rem;
+.bloqCategory{
+  display: flex;
+  justify-content: space-between;
   min-width: 170px;
   max-width: 188px;
-  text-align: center;
-  overflow-x: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
+  background-color: var(--secondary-color);
   border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  
+}
+.category {
+  overflow-x: hidden;
+  line-height: .6;
+  font-size: 2.8rem;
+  text-overflow: ellipsis;
   padding: 11px;
+  padding-top: 8px;
   padding-left: 16px;
   padding-right: 16px;
-  background-color: var(--secondary-color);
   color: var(--terciary-color);
   text-wrap: nowrap;
   animation: categoryOpacity .25s both ease-in;
@@ -134,4 +141,11 @@
     bottom: 0;;
     opacity: 0;
   }
+}
+.categoryDelete{
+  width: 32px;
+  min-width: 32px;
+  height: 32px;
+  margin-right: 1.5rem;
+  color: var(--terciary-color);
 }

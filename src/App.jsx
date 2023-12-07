@@ -77,13 +77,9 @@ export default function App () {
         infoTodo: todoByCategory.infoTodo
       }
   )
-  const newFilterBySearch = arrayTodosLower
-    .map(
-      arr =>
-        (arr.title.toLowerCase().includes(valueSearchLower) ||
-          arr.infoTodo.toLowerCase().includes(valueSearchLower)) &&
-        arr
-    )
+  const newFilterBySearch = arrayTodosLower?.map(arr =>
+    (arr.title.toLowerCase().includes(valueSearchLower) || arr.infoTodo.toLowerCase().includes(valueSearchLower)) && arr
+  )
     .filter(arry => arry.id)
 
   // Guardar Save Todo
